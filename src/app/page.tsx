@@ -1,8 +1,4 @@
-import {
-  BoltIcon,
-  ExclamationTriangleIcon,
-  SunIcon,
-} from "@heroicons/react/24/outline";
+import { BoltIcon, ExclamationTriangleIcon, SunIcon } from "@heroicons/react/24/outline";
 
 export default function HomePage() {
   return (
@@ -17,12 +13,8 @@ export default function HomePage() {
           </div>
           <div className="space-y-2">
             <p className="infoText">&quot;Explain Something to me&quot;</p>
-            <p className="infoText">
-              &quot;What is the difference between a dog and a cat?&quot;
-            </p>
-            <p className="infoText">
-              &quot;What is the colour of the Sun?&quot;
-            </p>
+            <p className="infoText">&quot;What is the difference between a dog and a cat?&quot;</p>
+            <p className="infoText">&quot;What is the colour of the Sun?&quot;</p>
           </div>
         </div>
 
@@ -33,15 +25,11 @@ export default function HomePage() {
             <h2>Examples</h2>
           </div>
           <div className="space-y-2">
-            <p className="infoText">
-              &quot;Change the OpenAI Model to use&quot;
-            </p>
+            <p className="infoText">&quot;Change the OpenAI Model to use&quot;</p>
             <p className="infoText">
               &quot;Messages are stored in Firebase&lsquo;s Firestone&quot;
             </p>
-            <p className="infoText">
-              &quot;Hot Toast notifications when OpenAI is thinking!&quot;
-            </p>
+            <p className="infoText">&quot;Hot Toast notifications when OpenAI is thinking!&quot;</p>
           </div>
         </div>
 
@@ -52,16 +40,11 @@ export default function HomePage() {
             <h2>Limitations</h2>
           </div>
           <div className="space-y-2">
+            <p className="infoText">&quot;May occasionally generate incorrect information&quot;</p>
             <p className="infoText">
-              &quot;May occasionally generate incorrect information&quot;
+              &quot;May occasionally produce harmful instructions or baised content&quot;
             </p>
-            <p className="infoText">
-              &quot;May occasionally produce harmful instructions or baised
-              content&quot;
-            </p>
-            <p className="infoText">
-              &quot;Limited knowledge of world and events afer 2021&quot;
-            </p>
+            <p className="infoText">&quot;Limited knowledge of world and events afer 2021&quot;</p>
           </div>
         </div>
       </div>

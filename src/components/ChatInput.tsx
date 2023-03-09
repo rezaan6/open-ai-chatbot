@@ -17,11 +17,10 @@ type Props = {
 export default function ChatInput({ chatId }: Props) {
   const [prompt, setPrompt] = useState("");
   const { data: session } = useSession();
-  
+
   const { data: model } = useSWR("model", {
     fallbackData: "text-davinci-003",
   });
-
 
   const sendMessage = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -39,8 +38,6 @@ export default function ChatInput({ chatId }: Props) {
       },
     };
 
-    
-
     await addDoc(
       collection(db, "user", session?.user?.email!, "chats", chatId, "messages"),
       messages
@@ -54,9 +51,7 @@ export default function ChatInput({ chatId }: Props) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ prompt: input, chatId, model, session }),
     }).then((res) => {
-
       toast.success("OpenAI has responded!", { id: notification });
-      
     });
   };
 

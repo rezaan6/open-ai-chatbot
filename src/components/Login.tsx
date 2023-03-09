@@ -26,7 +26,7 @@ export default function Login() {
               height={30}
               className="object-contain"
             />
-           <span className="uppercase">Sign in with Google</span> 
+            <span className="uppercase">Sign in with Google</span>
           </button>
         </div>
       </div>

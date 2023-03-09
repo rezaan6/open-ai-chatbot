@@ -11,13 +11,10 @@ const query = async (prompt: string, chatId: string, model: string) => {
       frequency_penalty: 0,
       presence_penalty: 0,
     })
-    .then(res => {
-      return res.data.choices[0].text
+    .then((res) => {
+      return res.data.choices[0].text;
     })
-    .catch(
-      (err) =>
-        `OpenAI was unable to find an answer for that! (Error: ${err.message}`
-    );
+    .catch((err) => `OpenAI was unable to find an answer for that! (Error: ${err.message}`);
 };
 
 export default query;

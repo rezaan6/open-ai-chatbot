@@ -7,17 +7,9 @@ import SessionProvider from "@/components/SessionProvider";
 import ClientProvider from "@/components/ClientProvider";
 import { adminDB } from "firebaseStoreAdmin";
 
-
-
-
-
-export default async function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const session = await getServerSession(authOptions);
-  
+
   // // Get the authenticated user's email from the session object
   // const userEmail = session?.user?.email;
 
@@ -45,12 +37,6 @@ export default async function RootLayout({
   // }
 
   // Check if user is signed in
- 
-
-
-
-
-
 
   return (
     <html lang="en">
@@ -62,11 +48,9 @@ export default async function RootLayout({
       <body>
         <SessionProvider session={session}>
           {!session ? (
-            < Login />
+            <Login />
           ) : (
-
-            < div className="flex">
-
+            <div className="flex">
               {/* Sidebar */}
               <div className="bg-[#202123] max-w-xs h-screen overflow-y-scroll-auto md:min-w-[20rem] ">
                 {" "}
@@ -78,10 +62,9 @@ export default async function RootLayout({
 
               <div className="bg-[#343541] flex-1">{children}</div>
             </div>
-
           )}
         </SessionProvider>
       </body>
-    </html >
+    </html>
   );
 }

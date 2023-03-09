@@ -17,7 +17,6 @@ export const authOptions = {
   adapter: FirestoreAdapter({
     firestore: adminDB,
   }),
-
 };
 
 export default NextAuth(authOptions);
