@@ -31,7 +31,7 @@ export default function SideBar() {
       <div className="flex-1 ">
         <div className="">
           <h2 className="text-white animate-pulse text-center p-2 my-3 text-sm  font-semibold bg-cyan-900 rounded-lg px-5 py-3flex items-center justify-center space-x-2">
-            Only messages are supported.
+            Only Text format are supported.
           </h2>
 
           {/* New Chat */}
