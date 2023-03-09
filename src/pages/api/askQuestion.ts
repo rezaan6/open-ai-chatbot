@@ -28,16 +28,16 @@ export default async function handler(
 
 
   try {
-    // ChatGPT Query
+    
     const response = await query(prompt, chatId, model);
 
     const message: Messages = {
-      text: response || "ChatGPT was unable to find an answer for that!",
+      text: response || "OpenAI was unable to find an answer for that!",
       createdAt: admin.firestore.Timestamp.now(),
       user: {
-        _id: "ChatGPT",
-        name: "ChatGPT",
-        avatar: "https://links.papareact.com/89K",
+        _id: "OpenAI",
+        name: "OpenAI",
+        avatar: "/openAI.png",
 
 
       }

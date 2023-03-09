@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
+import { FirebaseAdapterConfig } from "@next-auth/firebase-adapter";
 import { getApp, getApps, initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-
+import { getFirestore, Firestore } from "firebase/firestore";
 // learn https://firebase.google.com/docs/firestore/quickstart#web-version-9
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -20,6 +20,11 @@ const firebaseConfig = {
 // Initialize Firebase
 // singleton pattern
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+
 const db = getFirestore(app);
+
+
+
+
 
 export { db };

@@ -1,5 +1,8 @@
-import NextAuth from "next-auth";
+import { FirestoreAdapter } from "@next-auth/firebase-adapter";
+import { adminDB } from "firebaseStoreAdmin";
 import GoogleProvider from "next-auth/providers/google";
+import NextAuth from "next-auth";
+import { db } from "firebaseStore";
 
 export const authOptions = {
   // Configure one or more authentication providers
@@ -10,6 +13,11 @@ export const authOptions = {
     }),
     // ...add more providers here
   ],
+
+  adapter: FirestoreAdapter({
+    firestore: adminDB,
+  }),
+
 };
 
 export default NextAuth(authOptions);

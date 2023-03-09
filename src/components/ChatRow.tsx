@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { useCollection } from "react-firebase-hooks/firestore";
+import toast from "react-hot-toast";
 
 type Props = {
   id: string;
@@ -20,15 +21,17 @@ export default function ChatRow({ id }: Props) {
   const [messages] = useCollection(
     collection(db, "user", session?.user?.email!, "chats", id, "messages")
   );
-
+  
   useEffect(() => {
     if (!pathname) return;
     setActive(pathname.includes(id));
-  }, [pathname]);
+  }, [pathname, id]);
 
   const removeChat = async () => {
     await deleteDoc(doc(db, "user", session?.user?.email!, "chats", id));
     router.replace("/");
+     // Toaster notification
+     toast.success("Record deleted successfully.");
   };
 
   return (

@@ -7,7 +7,7 @@ import {
 export default function HomePage() {
   return (
     <div className="text-white flex flex-col items-center justify-center h-screen">
-      <h1 className="text-5xl font-bold mb-20 px-2">ChatGPT</h1>
+      <h1 className="text-5xl font-bold mb-20 px-2">ChatBot</h1>
       <div className="flex space-x-2 text-center">
         <div className="">
           <div className="flex flex-col items-center justify-center mb-5">
@@ -34,13 +34,13 @@ export default function HomePage() {
           </div>
           <div className="space-y-2">
             <p className="infoText">
-              &quot;Change the ChatGPT Model to use&quot;
+              &quot;Change the OpenAI Model to use&quot;
             </p>
             <p className="infoText">
               &quot;Messages are stored in Firebase&lsquo;s Firestone&quot;
             </p>
             <p className="infoText">
-              &quot;Hot Toast notifications when ChatGPT is thinking!&quot;
+              &quot;Hot Toast notifications when OpenAI is thinking!&quot;
             </p>
           </div>
         </div>

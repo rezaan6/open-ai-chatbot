@@ -11,6 +11,7 @@ export default function NewChat() {
   const { data: session } = useSession();
 
   const createNewChat = async () => {
+  
     const doc = await addDoc(
       collection(db, "user", session?.user?.email!, "chats"),
       {
@@ -18,7 +19,8 @@ export default function NewChat() {
         createdAt: serverTimestamp(),
       }
     );
-
+  
+   
     router.push(`/chat/${doc.id}`);
   };
 

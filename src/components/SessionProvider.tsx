@@ -8,5 +8,5 @@ interface Props {
   session: Session | null;
 }
 export default function SessionProvider({ children, session }: Props) {
-  return <Provider>{children}</Provider>;
+  return <Provider session={session}>{children}</Provider>;
 }

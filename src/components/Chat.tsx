@@ -5,6 +5,7 @@ import { collection, orderBy, query } from "firebase/firestore";
 import { db } from "firebaseStore";
 import { useSession } from "next-auth/react";
 import { useCollection } from "react-firebase-hooks/firestore";
+import { useEffect, useRef } from "react";
 import Message from "./Message";
 
 type Props = {
@@ -21,6 +22,12 @@ export default function Chat({ chatId }: Props) {
       )
   );
 
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
   return (
     <div className="flex-1 overflow-y-auto overflow-x-hidden">
       {messages?.empty && (
@@ -32,6 +39,7 @@ export default function Chat({ chatId }: Props) {
       {messages?.docs.map((message) => (
         <Message key={message.id} message={message.data()} />
       ))}
+      <div ref={messagesEndRef} />
     </div>
   );
 }

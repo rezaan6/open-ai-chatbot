@@ -17,7 +17,7 @@ type Props = {
 export default function ChatInput({ chatId }: Props) {
   const [prompt, setPrompt] = useState("");
   const { data: session } = useSession();
-
+  
   const { data: model } = useSWR("model", {
     fallbackData: "text-davinci-003",
   });
@@ -39,13 +39,15 @@ export default function ChatInput({ chatId }: Props) {
       },
     };
 
+    
+
     await addDoc(
       collection(db, "user", session?.user?.email!, "chats", chatId, "messages"),
       messages
     );
 
     // Toaster notification
-    const notification = toast.loading("ChatGPT is thinking...");
+    const notification = toast.loading("OpenAI is thinking...");
 
     await fetch(`${window.location.origin}/api/askQuestion`, {
       method: "POST",
@@ -53,7 +55,8 @@ export default function ChatInput({ chatId }: Props) {
       body: JSON.stringify({ prompt: input, chatId, model, session }),
     }).then((res) => {
 
-      toast.success("ChatGPT has responded!", { id: notification });
+      toast.success("OpenAI has responded!", { id: notification });
+      
     });
   };
 
