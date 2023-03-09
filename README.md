@@ -24,13 +24,16 @@ By using Next.js, TailwindCSS, Firebase, Google Sign-In, and TypeScript, this ch
 - [Nextauth](https://next-auth.js.org/)
 - [Prettier](https://prettier.io/)
 
-## Features
+## Features (wait until GIFs load)
 - User authentication using Google Sign-In & Sign-Out
+
 ![screen-recorder-thu-mar-09-2023-22-03-02 (3)](https://user-images.githubusercontent.com/72515147/224102078-68ed47b7-7fb7-4c31-8692-6a95c4c50345.gif)
 
 - Saved Chats are listed.
 
-- New Chat can be created.
+- New Chat can be created, takes to the new page.
+
+- Saved Chats can be deleted
 
 - Prompt to Chat button is enabled only when a value is entered.
 
@@ -38,81 +41,57 @@ By using Next.js, TailwindCSS, Firebase, Google Sign-In, and TypeScript, this ch
 
 - Model selection placement supports responsive view.
 
-TODO: Add information about the CLI component of the project.
-
-
-
-- [Description](#description)
-- [Tech Stack](#tech-stack)
-- [CLI](#cli)
-
-
-
-
-
-## Description
-
-This chatbot is a complete solution for those looking to create a feature-rich chatbot with user authentication and data storage capabilities. The chatbot uses OpenAI's language model to generate responses to user inputs and presents them in a sleek and intuitive interface built using Next.js and styled with TailwindCSS.
-
-User authentication is managed through Google Sign-In, allowing users to easily sign in to the chatbot using their existing Google account. The chatbot also integrates with Firebase, a popular real-time database platform, to store and retrieve user data such as chat history and user preferences.
-This chatbot is written in TypeScript, a statically typed superset of JavaScript, providing improved type checking and code reliability.
-
-By using Next.js, TailwindCSS, Firebase, Google Sign-In, and TypeScript, this chatbot offers a robust and scalable solution for those looking to create a feature-rich chatbot.
-
-## Tech Stack
-
-- React
-- Nextjs
-- TypeScript
-- Firebase
-- Nextauth
-- Prettier
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Getting Started
-
-First, run the development server:
-
+## Folder Structure
 ```
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+.
+|-- README.md
+|-- firebaseStore.ts
+|-- firebaseStoreAdmin.ts
+|-- next-env.d.ts
+|-- next.config.js
+|-- package.json
+|-- postcss.config.js
+|-- public
+|   |-- favicon.ico
+|   |-- google.png
+|   |-- next.svg
+|   |-- openAI.png
+|   |-- thirteen.svg
+|   `-- vercel.svg
+|-- serviceAccountKey.json
+|-- src
+|   |-- app
+|   |   |-- chat
+|   |   |   `-- [id]
+|   |   |       `-- page.tsx
+|   |   |-- head.tsx
+|   |   |-- layout.tsx
+|   |   `-- page.tsx
+|   |-- components
+|   |   |-- Chat.tsx
+|   |   |-- ChatInput.tsx
+|   |   |-- ChatRow.tsx
+|   |   |-- ClientProvider.tsx
+|   |   |-- Login.tsx
+|   |   |-- Message.tsx
+|   |   |-- ModelSelection.tsx
+|   |   |-- NewChat.tsx
+|   |   |-- SessionProvider.tsx
+|   |   `-- SideBar.tsx
+|   |-- lib
+|   |   |-- openAI.ts
+|   |   `-- queryApi.ts
+|   |-- pages
+|   |   `-- api
+|   |       |-- askQuestion.ts
+|   |       |-- auth
+|   |       |   `-- [...nextauth].ts
+|   |       `-- getEngines.ts
+|   `-- styles
+|       `-- globals.css
+|-- tailwind.config.js
+|-- tsconfig.json
+|-- typings.d.ts
+|-- yarn-error.log
+`-- yarn.lock
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
