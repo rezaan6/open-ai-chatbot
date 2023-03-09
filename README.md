@@ -1,10 +1,83 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Open AI Chatbot
+
+## Table of Contents
+
+- [Description](#description)
+- [Tech Stack](#tech-stack)
+- [Features](#features)
+
+## Description
+
+This chatbot is a complete solution for those looking to create a feature-rich chatbot with user authentication and data storage capabilities. The chatbot uses [OpenAI's language model](https://openai.com/language-models/) to generate responses to user inputs and presents them in a sleek and intuitive interface built using [Next.js](https://nextjs.org/) and styled with [TailwindCSS](https://tailwindcss.com/).
+
+User authentication is managed through [Google Sign-In](https://developers.google.com/identity/sign-in/web/sign-in), allowing users to easily sign in to the chatbot using their existing Google account. The chatbot also integrates with [Firebase](https://firebase.google.com/), a popular real-time database platform, to store and retrieve user data such as chat history and user preferences.
+This chatbot is written in [TypeScript](https://www.typescriptlang.org/), a statically typed superset of JavaScript, providing improved type checking and code reliability.
+
+By using Next.js, TailwindCSS, Firebase, Google Sign-In, and TypeScript, this chatbot offers a robust and scalable solution for those looking to create a feature-rich chatbot.
+
+## Tech Stack
+
+- [React](https://reactjs.org/)
+- [Nextjs](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Firebase](https://firebase.google.com/)
+- [Nextauth](https://next-auth.js.org/)
+- [Prettier](https://prettier.io/)
+
+## Features
+- User authentication using Google Sign-In
+
+
+![screen-recorder-thu-mar-09-2023-22-03-02](https://user-images.githubusercontent.com/72515147/224097806-d8a74e21-f10a-445b-9eab-4eac91f4f7ac.gif)
+
+
+TODO: Add information about the CLI component of the project.
+
+
+
+- [Description](#description)
+- [Tech Stack](#tech-stack)
+- [CLI](#cli)
+
+
+
+
+
+## Description
+
+This chatbot is a complete solution for those looking to create a feature-rich chatbot with user authentication and data storage capabilities. The chatbot uses OpenAI's language model to generate responses to user inputs and presents them in a sleek and intuitive interface built using Next.js and styled with TailwindCSS.
+
+User authentication is managed through Google Sign-In, allowing users to easily sign in to the chatbot using their existing Google account. The chatbot also integrates with Firebase, a popular real-time database platform, to store and retrieve user data such as chat history and user preferences.
+This chatbot is written in TypeScript, a statically typed superset of JavaScript, providing improved type checking and code reliability.
+
+By using Next.js, TailwindCSS, Firebase, Google Sign-In, and TypeScript, this chatbot offers a robust and scalable solution for those looking to create a feature-rich chatbot.
+
+## Tech Stack
+
+- React
+- Nextjs
+- TypeScript
+- Firebase
+- Nextauth
+- Prettier
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Getting Started
 
 First, run the development server:
 
-```bash
+```
 npm run dev
 # or
 yarn dev
