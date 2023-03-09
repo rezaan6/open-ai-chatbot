@@ -6,16 +6,26 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
-export default function NewChat() {
+const NewChat = () => {
   const router = useRouter();
   const { data: session } = useSession();
 
   const createNewChat = async () => {
-    const doc = await addDoc(collection(db, "user", session?.user?.email!, "chats"), {
-      userId: session?.user?.email!,
-      createdAt: serverTimestamp(),
-    });
+    // Make sure the user is logged in
+    if (!session || !session.user || !session.user.email) {
+      return;
+    }
 
+    // Add a new chat document to the user's chats collection
+    const doc = await addDoc(
+      collection(db, "user", session.user.email, "chats"),
+      {
+        userId: session.user.email,
+        createdAt: serverTimestamp(),
+      }
+    );
+
+    // Navigate to the chat page
     router.push(`/chat/${doc.id}`);
   };
 
@@ -25,4 +35,6 @@ export default function NewChat() {
       <p> New Chat</p>
     </div>
   );
-}
+};
+
+export default NewChat;

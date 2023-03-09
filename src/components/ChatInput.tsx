@@ -1,30 +1,33 @@
 "use client";
 
+import { useState, FormEvent } from "react";
+import { useSession } from "next-auth/react";
+import useSWR from "swr";
+import toast from "react-hot-toast";
 import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "firebaseStore";
-import { useSession } from "next-auth/react";
-import { FormEvent, useState } from "react";
-import toast from "react-hot-toast";
-import { Messages } from "typings";
 import ModelSelection from "./ModelSelection";
-import useSWR from "swr";
+import { Messages } from "typings";
 
-type Props = {
+interface Props {
   chatId: string;
-};
+}
 
-export default function ChatInput({ chatId }: Props) {
+const ChatInput: React.FC<Props> = ({ chatId }) => {
   const [prompt, setPrompt] = useState("");
   const { data: session } = useSession();
-
-  const { data: model } = useSWR("model", {
+  const { data: model } = useSWR<string>("model", {
     fallbackData: "text-davinci-003",
   });
 
   const sendMessage = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!prompt) return;
+
+    if (!prompt || !session) {
+      return;
+    }
+
     const input = prompt.trim();
     setPrompt("");
 
@@ -32,27 +35,44 @@ export default function ChatInput({ chatId }: Props) {
       text: input,
       createdAt: serverTimestamp(),
       user: {
-        _id: session?.user?.email!,
-        name: session?.user?.name!,
-        avatar: session?.user?.image! || `https://ui-avatars.com/api/?name=${session?.user?.name}`,
+        _id: session.user?.email!,
+        name: session.user?.name!,
+        avatar:
+          session.user?.image ??
+          `https://ui-avatars.com/api/?name=${session.user?.name}`,
       },
     };
 
-    await addDoc(
-      collection(db, "user", session?.user?.email!, "chats", chatId, "messages"),
-      messages
-    );
+    try {
+      await addDoc(
+        collection(
+          db,
+          "user",
+          session.user?.email!,
+          "chats",
+          chatId,
+          "messages"
+        ),
+        messages
+      );
 
-    // Toaster notification
-    const notification = toast.loading("OpenAI is thinking...");
+      const notification = toast.loading("OpenAI is thinking...");
 
-    await fetch(`${window.location.origin}/api/askQuestion`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ prompt: input, chatId, model, session }),
-    }).then((res) => {
-      toast.success("OpenAI has responded!", { id: notification });
-    });
+      const response = await fetch(`${window.location.origin}/api/askQuestion`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt: input, chatId, model, session }),
+      });
+
+      if (response.ok) {
+        toast.success("OpenAI has responded!", { id: notification });
+      } else {
+        toast.error("Failed to get a response from OpenAI.");
+      }
+    } catch (error) {
+      console.error("An error occurred:", error);
+      toast.error("An error occurred while sending the message.");
+    }
   };
 
   return (
@@ -66,7 +86,6 @@ export default function ChatInput({ chatId }: Props) {
           type="text"
           placeholder="Type your message here..."
         />
-
         <button
           disabled={!prompt || !session}
           type="submit"
@@ -82,4 +101,6 @@ export default function ChatInput({ chatId }: Props) {
       </div>
     </div>
   );
-}
+};
+
+export default ChatInput;

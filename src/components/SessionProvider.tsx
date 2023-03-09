@@ -7,6 +7,10 @@ interface Props {
   children: React.ReactNode;
   session: Session | null;
 }
-export default function SessionProvider({ children, session }: Props) {
+
+const SessionProvider = ({ children, session }: Props) => {
+  // Wrap the children with the NextAuth session provider
   return <Provider session={session}>{children}</Provider>;
-}
+};
+
+export default SessionProvider;

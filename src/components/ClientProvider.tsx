@@ -1,10 +1,13 @@
 "use client";
 import { Toaster } from "react-hot-toast";
 
-export default function ClientProvider() {
+const ClientProvider = () => {
   return (
     <>
+      {/* Toaster component to display notifications to the user */}
       <Toaster position="top-right" />
     </>
   );
-}
+};
+
+export default ClientProvider;

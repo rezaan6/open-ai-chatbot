@@ -1,16 +1,19 @@
 import { DocumentData } from "firebase/firestore";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import React from "react";
 
 type Prop = {
   message: DocumentData;
 };
-export default function Message({ message }: Prop) {
+
+const Message: React.FC<Prop> = ({ message }) => {
+  // Check if the message is sent by OpenAI
   const isOpenAI = message.user.name === "OpenAI";
 
   return (
     <div className={`py-5 text-white ${isOpenAI && "bg-[#434654]"}`}>
       <div className="flex space-x-5 px-10 max-w-2xl mx-auto">
+        {/* User avatar */}
         <Image
           src={message.user.avatar}
           alt="avatar"
@@ -18,8 +21,11 @@ export default function Message({ message }: Prop) {
           height={32}
           style={{ objectFit: "contain" }}
         />
-        <p className="pt-1 text-sm ">{message.text}</p>
+        {/* Message text */}
+        <p className="pt-1 text-sm">{message.text}</p>
       </div>
     </div>
   );
-}
+};
+
+export default Message;
