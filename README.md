@@ -25,11 +25,18 @@ By using Next.js, TailwindCSS, Firebase, Google Sign-In, and TypeScript, this ch
 - [Prettier](https://prettier.io/)
 
 ## Features
-- User authentication using Google Sign-In
+- User authentication using Google Sign-In & Sign-Out
+![screen-recorder-thu-mar-09-2023-22-03-02 (3)](https://user-images.githubusercontent.com/72515147/224102078-68ed47b7-7fb7-4c31-8692-6a95c4c50345.gif)
 
+- Saved Chats are listed.
 
-![screen-recorder-thu-mar-09-2023-22-03-02](https://user-images.githubusercontent.com/72515147/224097806-d8a74e21-f10a-445b-9eab-4eac91f4f7ac.gif)
+- New Chat can be created.
 
+- Prompt to Chat button is enabled only when a value is entered.
+
+- OpenAI model are viewed as selection Dropdown
+
+- Model selection placement supports responsive view.
 
 TODO: Add information about the CLI component of the project.
 
