@@ -8,22 +8,17 @@ import { useCollection } from "react-firebase-hooks/firestore";
 import { useEffect, useRef } from "react";
 import Message from "./Message";
 
-
 type Props = {
   chatId: string;
 };
 
-
 const Chat: React.FC<Props> = ({ chatId }) => {
- 
   const { data: session } = useSession();
 
-
   const [messages] = useCollection(
- 
     session
-      // Create a query to get the messages collection, ordering by the `createdAt` field in ascending order
-      ? query(
+      ? // Create a query to get the messages collection, ordering by the `createdAt` field in ascending order
+        query(
           collection(db, "user", session.user?.email!, "chats", chatId, "messages"),
           orderBy("createdAt", "asc")
         )
@@ -47,11 +42,11 @@ const Chat: React.FC<Props> = ({ chatId }) => {
           <ArrowDownCircleIcon className="h-10 w-10 mx-auto mt-5 text-white animate-bounce" />
         </>
       )}
-    
+
       {messages?.docs.map((message) => (
         <Message key={message.id} message={message.data()} />
       ))}
-    
+
       <div ref={messagesEndRef} />
     </div>
   );

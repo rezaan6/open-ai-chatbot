@@ -37,22 +37,13 @@ const ChatInput: React.FC<Props> = ({ chatId }) => {
       user: {
         _id: session.user?.email!,
         name: session.user?.name!,
-        avatar:
-          session.user?.image ??
-          `https://ui-avatars.com/api/?name=${session.user?.name}`,
+        avatar: session.user?.image ?? `https://ui-avatars.com/api/?name=${session.user?.name}`,
       },
     };
 
     try {
       await addDoc(
-        collection(
-          db,
-          "user",
-          session.user?.email!,
-          "chats",
-          chatId,
-          "messages"
-        ),
+        collection(db, "user", session.user?.email!, "chats", chatId, "messages"),
         messages
       );
 

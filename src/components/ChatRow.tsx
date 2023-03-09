@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useCollection } from "react-firebase-hooks/firestore";
 import toast from "react-hot-toast";
-import { useRouter,usePathname } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { ChatBubbleLeftIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { deleteDoc, doc, collection } from "firebase/firestore";
 import { db } from "firebaseStore";

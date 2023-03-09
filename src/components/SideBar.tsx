@@ -17,7 +17,7 @@ export default function SideBar() {
   // Get the chats collection for the current user
   const [chats, loading, error] = useCollection(
     session &&
-    query(collection(db, "user", session?.user?.email!, "chats"), orderBy("createdAt", "asc"))
+      query(collection(db, "user", session?.user?.email!, "chats"), orderBy("createdAt", "asc"))
   );
 
   // Handle errors loading chats
@@ -49,9 +49,7 @@ export default function SideBar() {
                 <p>Loading Chats...</p>
               </div>
             )}
-            {chats?.size === 0 && (
-              <div className="text-white text-center">No Chats Available</div>
-            )}
+            {chats?.size === 0 && <div className="text-white text-center">No Chats Available</div>}
             {chats?.docs.map((chat) => (
               <ChatRow key={chat.id} id={chat.id} />
             ))}

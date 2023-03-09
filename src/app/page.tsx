@@ -4,9 +4,7 @@ interface InfoTextProps {
   children: string;
 }
 
-const InfoText: React.FC<InfoTextProps> = ({ children }) => (
-  <p className="infoText">{children}</p>
-);
+const InfoText: React.FC<InfoTextProps> = ({ children }) => <p className="infoText">{children}</p>;
 
 const HomePage: React.FC = () => (
   <div className="text-white flex flex-col items-center justify-center h-screen">
@@ -58,7 +56,9 @@ const HomePage: React.FC = () => (
         {/* List of limitations */}
         <div className="space-y-2">
           <InfoText>&quot;May occasionally generate incorrect information&quot;</InfoText>
-          <InfoText>&quot;May occasionally produce harmful instructions or biased content&quot;</InfoText>
+          <InfoText>
+            &quot;May occasionally produce harmful instructions or biased content&quot;
+          </InfoText>
           <InfoText>&quot;Limited knowledge of world and events after 2021&quot;</InfoText>
         </div>
       </div>

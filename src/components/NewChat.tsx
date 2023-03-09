@@ -17,13 +17,10 @@ const NewChat = () => {
     }
 
     // Add a new chat document to the user's chats collection
-    const doc = await addDoc(
-      collection(db, "user", session.user.email, "chats"),
-      {
-        userId: session.user.email,
-        createdAt: serverTimestamp(),
-      }
-    );
+    const doc = await addDoc(collection(db, "user", session.user.email, "chats"), {
+      userId: session.user.email,
+      createdAt: serverTimestamp(),
+    });
 
     // Navigate to the chat page
     router.push(`/chat/${doc.id}`);
