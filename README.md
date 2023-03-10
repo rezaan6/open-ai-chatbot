@@ -23,6 +23,7 @@ By using Next.js, TailwindCSS, Firebase, Google Sign-In, and TypeScript, this ch
 - [Firebase](https://firebase.google.com/)
 - [Nextauth](https://next-auth.js.org/)
 - [Prettier](https://prettier.io/)
+- [React Hot Toast](https://react-hot-toast.com/)
 
 ## Features (wait until GIFs load)
 
@@ -34,17 +35,29 @@ By using Next.js, TailwindCSS, Firebase, Google Sign-In, and TypeScript, this ch
 
 ![Saved Chat](https://user-images.githubusercontent.com/72515147/224112616-61fa2407-9bf3-4a62-91fd-54cc1d00850f.gif)
 
-
-
 - New Chat can be created, takes to the new page.
 
-- Saved Chats can be deleted
+![New Chat](https://user-images.githubusercontent.com/72515147/224330362-12b32b6a-c8c6-4c52-ad16-79c199fb0753.gif)
+
+- Delete a saved Chats.
+
+![Delete](https://user-images.githubusercontent.com/72515147/224331044-3c715b37-fea8-4706-8be0-4c23dae0312e.gif)
 
 - Prompt to Chat button is enabled only when a value is entered.
 
+![Prompt](https://user-images.githubusercontent.com/72515147/224332434-7c9a2646-ea7e-46c6-b58b-8cdf3450fa78.gif)
+
 - OpenAI model are viewed as selection Dropdown
 
+![Model Selection](https://user-images.githubusercontent.com/72515147/224333259-ba32529a-153b-4188-917a-b5d30416344f.gif)
+
 - Model selection placement supports responsive view.
+
+![Responsive Model Selection](https://user-images.githubusercontent.com/72515147/224337836-3fbc8416-fc37-42ed-a3d2-2b3bd80960f6.gif)
+
+- Toast is displayed 
+
+![Toast](https://user-images.githubusercontent.com/72515147/224338953-9a8b1ff1-9cc9-41ac-ae15-2e5e47b1180c.gif)
 
 ## Open AI API
 - `openAI.ts`
