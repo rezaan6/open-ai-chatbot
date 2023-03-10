@@ -5,6 +5,9 @@
 - [Description](#description)
 - [Tech Stack](#tech-stack)
 - [Features](#features-wait-until-gifs-load)
+- [Open AI API](#open-ai-api)
+- [Folder Structure](#folder-structure)
+- [Environment Variables](#environment-variables)
 
 ## Description
 
@@ -24,6 +27,7 @@ By using Next.js, TailwindCSS, Firebase, Google Sign-In, and TypeScript, this ch
 - [Nextauth](https://next-auth.js.org/)
 - [Prettier](https://prettier.io/)
 - [React Hot Toast](https://react-hot-toast.com/)
+- [Vercel] (https://vercel.com/docs)
 
 ## Features (wait until GIFs load)
 
@@ -158,4 +162,16 @@ export default query;
 |-- typings.d.ts
 |-- yarn-error.log
 `-- yarn.lock
+
+```
+
+## Environment Variables
+
+```
+OPENAI_API_KEY=
+GOOGLE_ID=
+GOOGLE_SECRET=
+NEXTAUTH_SECRET=
+FIREBASE_SERVICE_ACCOUNT_KEY=
+
 ```
