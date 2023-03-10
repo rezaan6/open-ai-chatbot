@@ -6,6 +6,8 @@
 - [Tech Stack](#tech-stack)
 - [Features](#features-wait-until-gifs-load)
 - [Open AI API](#open-ai-api)
+- [Database Structure](#database-structure)
+- [Format Configuration](#format-configuration)
 - [Folder Structure](#folder-structure)
 - [Environment Variables](#environment-variables)
 
@@ -109,6 +111,31 @@ export default query;
 
 ```
 
+## Database Structure
+```
+  .collection("user")
+  .doc(session?.user?.email!)
+  .collection("chats")
+  .doc(chatId)
+  .collection("messages")
+  .add(message);
+      
+```
+
+## Format Configuration
+```
+
+{
+  "semi": true,
+  "singleQuote": false,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "printWidth": 100,
+  "bracketSpacing": true
+}
+
+```
+
 ## Folder Structure
 ```
 .
@@ -167,11 +194,26 @@ export default query;
 
 ## Environment Variables
 
+- Generate a key from Open AI.
 ```
 OPENAI_API_KEY=
+```
+
+- Generate a key from Firebae Web SDK configuration.
+```
 GOOGLE_ID=
 GOOGLE_SECRET=
-NEXTAUTH_SECRET=
-FIREBASE_SERVICE_ACCOUNT_KEY=
-
 ```
+
+- Generate using command [Secret](https://next-auth.js.org/configuration/options#secret).
+```
+NEXTAUTH_SECRET=
+```
+
+- Generate the service key from firebase and use the link to format it [Text Fixer](https://www.textfixer.com/tools/remove-line-breaks.php), once that is done add is as a value.
+```
+FIREBASE_SERVICE_ACCOUNT_KEY= 
+```
+
+
+
