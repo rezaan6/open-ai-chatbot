@@ -30,6 +30,7 @@ By using Next.js, TailwindCSS, Firebase, Google Sign-In, and TypeScript, this ch
 - [Prettier](https://prettier.io/)
 - [React Hot Toast](https://react-hot-toast.com/)
 - [Vercel](https://vercel.com/docs)
+- [TailwindCSS](https://tailwindcss.com/)
 
 ## Features (wait until GIFs load)
 
