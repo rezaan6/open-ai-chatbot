@@ -211,7 +211,7 @@ GOOGLE_SECRET=
 NEXTAUTH_SECRET=
 ```
 
-- Generate the service key from firebase and use the link to format it [Text Fixer](https://www.textfixer.com/tools/remove-line-breaks.php), once that is done add is as a value.
+- Generate the service key from firebase and use the link to format it [Text Fixer](https://www.textfixer.com/tools/remove-line-breaks.php), once that is done add it as a value.
 ```
 FIREBASE_SERVICE_ACCOUNT_KEY= 
 ```
