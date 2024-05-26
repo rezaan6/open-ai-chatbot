@@ -72,15 +72,15 @@ By using Next.js, TailwindCSS, Firebase, Google Sign-In, and TypeScript, this ch
 This code is used to set up the OpenAI API in a project and provides a convenient way to access the API's functionality throughout the application. The API key is stored as an environment variable to keep it secure and prevent it from being hard-coded in the codebase.
 
 ```
-import { Configuration, OpenAIApi } from "openai";
+import OpenAI from "openai";
 
-const configuration = new Configuration({
+
+const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-const openai = new OpenAIApi(configuration);
-
 export default openai;
+
 
 ```
 
@@ -89,23 +89,27 @@ export default openai;
 This code demonstrates how to use the OpenAI API to generate a response to a user's input in a chat application. The query function can be used to get a response from the OpenAI model for any given prompt and model, making it a reusable component in the application.
 
 ```
-import openai from "./openAI";
+import openai from "./openAI"; 
 
 const query = async (prompt: string, chatId: string, model: string) => {
-  return await openai
-    .createCompletion({
+  try {
+    const response = await openai.chat.completions.create({
       model,
-      prompt,
+      messages: [
+        { role: "system", content: "You are a helpful assistant." },
+        { role: "user", content: prompt },
+      ],
       temperature: 0.9,
       top_p: 1,
       max_tokens: 1000,
       frequency_penalty: 0,
       presence_penalty: 0,
-    })
-    .then((res) => {
-      return res.data.choices[0].text;
-    })
-    .catch((err) => `OpenAI was unable to find an answer for that! (Error: ${err.message}`);
+    });
+
+    return response.choices[0].message.content;
+  } catch (err:any) {
+    return `OpenAI was unable to find an answer for that! (Error: ${err.message})`;
+  }
 };
 
 export default query;
