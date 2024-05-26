@@ -22,7 +22,7 @@ const Message: React.FC<Prop> = ({ message }) => {
           style={{ objectFit: "contain" }}
         />
         {/* Message text */}
-        <p className="pt-1 text-sm">{message.text}</p>
+        <p className="pt-1 text-sm whitespace-pre-wrap">{message.text}</p>
       </div>
     </div>
   );

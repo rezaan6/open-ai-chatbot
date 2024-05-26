@@ -18,7 +18,7 @@ const ChatInput: React.FC<Props> = ({ chatId }) => {
   const [prompt, setPrompt] = useState("");
   const { data: session } = useSession();
   const { data: model } = useSWR<string>("model", {
-    fallbackData: "text-davinci-003",
+    fallbackData: "gpt-3.5-turbo-0125",
   });
 
   const sendMessage = async (e: FormEvent<HTMLFormElement>) => {
